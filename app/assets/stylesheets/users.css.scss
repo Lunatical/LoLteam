@@ -1,0 +1,50 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "compass";
+@import "compass/reset";
+@import "mixin";
+#create_user {
+	position: fixed;
+	background:url(Sign_Thema.png);
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+	width: 100%;
+	height: 100%;
+	.error {
+		position: fixed;
+		top: 45%;
+		left: 20%;
+		color: #fff;
+	}
+	.wrapper {
+		background:url(Join.png);
+		background-repeat:no-repeat;
+		background-size:100% 100%;
+		position: fixed;
+		top: 50%;
+		left: 70%;
+		width: 300px;
+		height: 500px;
+		margin-top: -250px;
+		margin-left: -150px;
+		text-align: center;
+		.join{
+			background-color:#E6DF96;
+			position: absolute;
+			top:    5%;
+			left:   5%;
+			width:  90%;
+			height: 90%;
+			margin: 0 auto;
+			text-align:left;
+		}
+		.simple_form{
+			margin-left:20px;
+		}
+	}
+	
+	h1{
+		color:#fff;
+	}
+}

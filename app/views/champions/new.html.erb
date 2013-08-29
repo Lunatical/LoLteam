@@ -1,0 +1,14 @@
+<div id="champions_create">
+<%= form_for(@champion) do |f| %>
+	<div class="col-lg-3">
+    <%= f.label :user_id %><br>
+		<fieldset disabled>
+    <%= f.text_field :username, class: "form-control", value: current_user.username  %>
+	</fieldset>
+	</div>
+  <div class="actions pt10">
+    <%= f.submit class: "btn btn-large btn-success" %>
+  </div>
+<% end %>
+
+</div>

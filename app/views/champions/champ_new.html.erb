@@ -1,0 +1,28 @@
+<div id="champions_create">
+<%= form_for(@champion) do |f| %>
+  <% if @champion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@champions.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+      <% @champion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-lg-2">
+    <%= f.label :champname %><br>
+    <%= f.text_field :champname,class: "form-control" %>
+  </div>
+	<div class="col-lg-3">
+		<%= f.label :champ_image %>
+		<%= f.file_field :image%>
+	</div>
+  <div class="actions pt10">
+    <%= f.submit class: "btn btn-large btn-success" %>
+  </div>
+<% end %>
+
+</div>

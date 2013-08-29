@@ -1,0 +1,50 @@
+<div id="team_list">
+	<h1>Team List</h1>
+	<div id="body">
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>
+					name
+				</th>
+				<th>
+					win
+				</th>
+				<th>
+					lose
+				</th>
+				<th>
+					other
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @teams.each do |team| %>
+			<tr>
+				<td>
+					<%=link_to team.name, team_path(team),style: "background:none"%>
+				</td>
+				<td>
+					<%=team.win%>
+				</td>
+				<td>
+					<%=team.lose%>
+				</td>
+				<td>
+					<%= link_to 'edit', edit_team_path(team), class: "btn btn-mini btn-default glyphicon glyphicon-pencil" %>
+					<%= link_to 'destroy', team_path(team), class: "btn btn-mini btn-default glyphicon glyphicon-trash", method: :delete %>
+					<%= link_to 'message', edit_team_path(team), class: "btn btn-mini btn-default glyphicon glyphicon-envelope" %>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	
+		<div class="new_team">
+		<% if current_user %>
+		<%= link_to 'New Team', new_team_path,class: "btn btn-mini btn-default glyphicon glyphicon-plus" %>
+		<% end%>
+		</div>
+		
+	</div>
+<div>

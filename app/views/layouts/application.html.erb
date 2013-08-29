@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LoLteam</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<% if !current_user %>
+	<script>
+	$(document).ready(function(e){
+		$(location).attr('href',"<%= new_session_path %>");
+	})
+	</script>
+	<% end %>
+
+	<div id="header">
+		<% if current_user %>
+		  Logged in as <%= current_user.username %>.
+		  <%= link_to "Log out", logout_path %>
+			<% if current_user.username == "admin"%>
+			| <%= link_to "admin"%>
+			<% end %>
+		<% end %>
+		
+		<nav class="navbar navbar-inverse nav-size" role="navigation">
+			<ul class="nav navbar-nav">
+				<li>
+					<%= link_to "logo", "#", class: "navbar-brand"%>
+				</li>
+				<li class="active">
+					<%= link_to "Teamlist", "#" %>
+				</li>
+				<li class="disabled">
+					<%= link_to "Mycompions", "#"%>
+				</li>
+			</ul>
+		</nav>
+		
+	</div>
+	
+<%= yield %>
+
+</body>
+</html>

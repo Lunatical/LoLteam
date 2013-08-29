@@ -1,0 +1,33 @@
+@import "compass";
+@import "compass/reset";
+@import "mixin";
+#header{
+	width:90%;
+	margin:0 auto;
+}
+#team_list{
+	width:90%;
+	margin:0 auto;
+	table{
+		td{
+			text-align:center;
+			}
+		th{
+			text-align:center;
+		}
+	}
+}
+
+#team_create{
+	width:90%;
+	margin:0 auto;
+}
+
+
+#team_show{
+	width:90%;
+	margin:0 auto;
+	#member_list{
+			
+	}
+}

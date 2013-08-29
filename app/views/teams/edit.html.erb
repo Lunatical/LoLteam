@@ -1,0 +1,15 @@
+<div id="team_create">
+<% if current_user.username=="admin" || t(current_user.username)==t(@team.leader) %>
+<h1>Editing team</h1>
+
+
+<%= render 'form' %>
+<br>
+<div class="ml20">
+<%= link_to 'Show', @team %> |
+<%= link_to 'Back', teams_path %>
+</div>
+<% else %>
+<h1> 잘못된 경로입니다  </h1>
+<% end %>
+</div>

@@ -1,0 +1,2 @@
+module MychampionsHelper
+end

@@ -1,0 +1,27 @@
+<%= form_for(@team) do |f| %>
+  <% if @team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+      <% @team.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-lg-2">
+		<%= f.hidden_field :leader, :value => current_user.username %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name,class: "form-control" %>
+  </div>
+	<div class="col-lg-3">
+		<%= f.label :File_input %>
+		<%= f.file_field :image%>
+	</div>
+	
+  <div class="actions mt20">
+    <%= f.submit class: "btn btn-large btn-success" %>
+  </div>
+<% end %>

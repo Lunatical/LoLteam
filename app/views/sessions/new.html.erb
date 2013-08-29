@@ -1,0 +1,26 @@
+
+<div id="login">
+	<div class="wrapper">
+		<% if current_user %>
+		<h1><%= link_to 'Team_List', teams_path, :style=>'color:#FFFFFF; background:none;' %></h1>
+		<% else %>
+			<h1>LOL Team</h1>
+			<%= form_tag sessions_path do %>
+				<%= text_field_tag :email, nil, placeholder: "email",class: "form-control" %><br>
+				<%= password_field_tag :password, nil, placeholder: "password", class: "form-control" %><br>
+			  <%= submit_tag "로그인", class: "btn  btn-success" %>
+				<%= button_tag "회원가입", class: "btn btn-success ml20", id:"Sign_up" %>
+				<% if msg = flash[:alert] %>
+				  <%= content_tag :div, msg, :class => "error mt10 fcw" %>
+				<% end %>
+			<% end %>
+		<% end%>
+	</div>
+</div>
+
+<script>
+$("#Sign_up").click(function(e){
+	event.preventDefault(e);
+	$(location).attr("href","<%=new_user_path%>")
+})
+</script>

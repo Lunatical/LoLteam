@@ -1,0 +1,41 @@
+// Place all the styles related to the champions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#mychampion_list{
+	width: 90%;
+	margin: 0px auto;
+	img{
+		margin: 5px auto;
+	}
+}
+
+#champions_create{
+	width: 90%;
+	margin: 0px auto;
+}
+
+#champions_edit{
+	width: 90%;
+	margin: 0px auto;
+	#mychampions{
+		overflow: scroll;
+		height: 450px;
+		width: 45%;
+		float: left;
+		margin: 0 auto;
+	}
+	#champions{
+		overflow: scroll;
+		height: 550px;
+		width: 45%;
+		float: right;
+		margin: 0 auto;
+	}
+	img{
+		display: none;
+	}
+	.selected{
+		display: inline;
+	}
+}

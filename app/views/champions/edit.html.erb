@@ -1,0 +1,48 @@
+<div id="champions_edit">
+	<div id="mychampions">
+		<% @user_champions.each do |champ|%>
+			<a href="#" data-target="<%= champ.id %>" ><%= image_tag champ.image, title: champ.champname, style: "margin:5px auto", class: champ.id %></a>
+		<% end %>
+	</div>
+	
+	<div id="champions">
+		<% (@champ - @user_champions).each do |champ|%>
+			<a href="#" data-target="<%= champ.id %>" ><%= image_tag champ.image, title: champ.champname, style: "margin:5px auto", class: "selected", id:champ.id %></a>
+		<% end %>
+	</div>
+	<div>
+		<%= form_for @user_champion, url: { action: :create }  do |f|%>
+			<%= f.hidden_field :champions_id, id: "champions_id", value: "" %>
+			<%= f.submit class: "btn btn-large btn-success", id: "submit"  %>
+		<% end %>
+	</div>
+</div>
+
+
+
+<script type="text/javascript" charset="utf-8" >
+	select_champ = "";
+	$("#champions a").click(function(e){
+		e.preventDefault();
+		var target = $(this).attr("data-target");
+		$("#"+target).removeClass("selected");
+		$("."+target).addClass("selected");
+		$("#champions_id").attr("value", $("#champions_id").attr("value") + "a" + target + ",");
+	});
+	
+	$("#mychampions a").click(function(e){
+		e.preventDefault();
+		var target = $(this).attr("data-target");
+		$("."+target).removeClass("selected");
+		$("#"+target).addClass("selected");
+		select_champ = $("#champions_id").attr("value");
+		select_champ = select_champ.replace(("a" + target + ",") , "");
+		$("#champions_id").attr("value", select_champ );
+	});
+	
+	$("#submit").click(function(e){
+		select_champ = $("#champions_id").attr("value");
+		select_champ = select_champ.replace(/a/g, "");
+		$("#champions_id").attr("value", select_champ );
+	});
+</script>

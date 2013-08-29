@@ -1,0 +1,57 @@
+<div id="team_show">
+	<div class="header">
+		<h1>Team info</h1>
+		<%= image_tag @team.image_url(:rect	) %>
+		<p>
+		  <strong>팀명:</strong>
+		  <%= @team.name %>
+		</p>
+		<p>
+			<strong>리더:</strong>
+			<%= @team.leader %>
+		</p>
+		<p>
+			<strong>멤버:<%= @members.count %> 명</strong>
+		</p>
+	</div>
+	<div id="member_list">
+		<table class="table">
+			<% @members.each do |member| %>
+			<thead>
+				<tr>
+					<th>
+						username
+					</th>
+					<th>
+						line
+					</th>
+					<th>
+						info
+					</th>
+				</tr>
+			</thead>
+			<tr>
+				<td>
+					<%= member.username%>
+				</td>
+				<td>
+					<% if member.top == "1" %>top |<% end %>
+					<% if member.ap == "1" %>mid |<% end %>
+					<% if member.ad == "1" %>range |<% end %>
+					<% if member.jungle == "1" %>jungle |<% end %>
+					<% if member.mom == "1" %>supporter<% end %> 
+				</td>
+				<td>
+					<%= link_to 'carryu	', teams_path, class: "btn btn-mini btn-default disabled" %>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+		<div class="other">
+		<% if current_user %>
+		<%= link_to 'Edit', edit_team_path(@team), class: "btn btn-mini btn-default glyphicon glyphicon-pencil" %> |
+		<% end%>
+		<%= link_to 'Back', teams_path, class: "btn btn-mini btn-default glyphicon glyphicon-arrow-left" %>
+		</div>
+	</div>
+</div>
