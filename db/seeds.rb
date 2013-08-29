@@ -7,3 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create(email: "admin@user.com", password: "1234")
+
+
+1.upto(116).each do |i|
+  Champion.create(image: File.open("#{Rails.root}/test/fixtures/champions/#{i}/1.jpg"))
+end
