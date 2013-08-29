@@ -1,23 +1,23 @@
 <div id="create_user">
 	<div class="error">
 		<% if params[:error] %>
-		<h3>error: alerady username</h3>
+			<h3>error: alerady username</h3>
 		<% end %>
 	</div>
-		<div class="wrapper">
-			<div class="join">
-	<%= simple_form_for @user do |f| %>
-		<%= f.input :username, label: "username", input_html: { class: "w100 form-control" } %>
-		<%= f.input :top, label: '탑',  :as => :boolean, input_html: { class: "fl" }, :value => true %>
-		<%= f.input :ap, label: "미드", :as => :boolean, input_html: { class: "fl" }, :value => true %>
-		<%= f.input :jungle, label: "정글", :as => :boolean, input_html: { class: "fl" }, :value => true %>
-		<%= f.input :ad, label: "원딜", :as => :boolean, input_html: { class: "fl" }, :value => true %>
-		<%= f.input :mom, label: "서폿", :as => :boolean, input_html: { class: "fl" }, :value => true %>
-		<%= f.input :team, label: "Team", input_html: { class: "w200 form-control" }, :as => :select, collection: @team, :include_blank => false %>
-		<%= f.input :email, label: "email", input_html: { class: "form-control w200 " } %>
-		<%= f.input :password, label: "password", input_html: { class: "w100 form-control" } %>
-		<%= f.submit "확인", :class => "btn btn-success mt20" %>
-	<% end %>
+	<div class="wrapper">
+		<div class="join">
+			<%= simple_form_for @user do |f| %>
+				<%= f.input :username, label: "username", input_html: { class: "w100 form-control" } %>
+				<%= f.input :top, label: '탑',  :as => :boolean, input_html: { class: "fl" }, :value => true %>
+				<%= f.input :ap, label: "미드", :as => :boolean, input_html: { class: "fl" }, :value => true %>
+				<%= f.input :jungle, label: "정글", :as => :boolean, input_html: { class: "fl" }, :value => true %>
+				<%= f.input :ad, label: "원딜", :as => :boolean, input_html: { class: "fl" }, :value => true %>
+				<%= f.input :mom, label: "서폿", :as => :boolean, input_html: { class: "fl" }, :value => true %>
+				<%= f.input :team, label: "Team", input_html: { class: "w200 form-control" }, :as => :select, collection: @team, :include_blank => false %>
+				<%= f.input :email, label: "email", input_html: { class: "form-control w200 " } %>
+				<%= f.input :password, label: "password", input_html: { class: "w100 form-control" } %>
+				<%= f.submit "확인", :class => "btn btn-success mt20" %>
+			<% end %>
 		</div>
 	</div>
 </div>

@@ -1,8 +1,11 @@
 class ChampionsController < ApplicationController
+
+	before_filter :require_login
+
   def index
     @champion = Champion.order("name ASC").all
     #@user_champion = UserChampion.where(users_id: current_user.id).pluck(:champions_id)
-    @user_champions = UserChampion.where(users_id: current_user.id)
+		@user_champions = current_user.champions
   end
   
   def new
@@ -37,9 +40,9 @@ class ChampionsController < ApplicationController
   end
   
   def edit
-    @champ = Champion.all.order("name ASC")
+    @champions = Champion.all.order("name ASC")
     @user_champion = UserChampion.new
-    @user_champions = UserChampion.where(users_id: current_user.id)
+    @user_champion_ids = current_user.champions.pluck(:id)
   end
     
   private

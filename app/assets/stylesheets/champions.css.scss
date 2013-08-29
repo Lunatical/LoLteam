@@ -15,27 +15,33 @@
 	margin: 0px auto;
 }
 
-#champions_edit{
+#champions_edit {
 	width: 90%;
 	margin: 0px auto;
-	#mychampions{
-		overflow: scroll;
-		height: 450px;
-		width: 45%;
-		float: left;
-		margin: 0 auto;
-	}
-	#champions{
-		overflow: scroll;
-		height: 550px;
-		width: 45%;
-		float: right;
-		margin: 0 auto;
-	}
-	img{
-		display: none;
-	}
-	.selected{
-		display: inline;
+	#champions {
+		a[data-id] {
+			float: left;
+			position: relative;
+			margin: 3px;
+			
+			.not_selected {
+				display: block;
+				background-color: #000;
+				opacity: 0.6;
+				width: 64px;
+				height: 64px;
+				
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		}
+		
+		a[data-selected="true"] {
+			.not_selected {
+				display: none;
+			}
+		}
 	}
 }
+

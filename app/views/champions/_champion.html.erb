@@ -1,0 +1,17 @@
+<% 
+uc = current_user.user_champions.where(champion_id: champion.id).first
+
+if uc.present?
+	selected = true
+	url = user_champion_path(uc)
+	method = :delete
+else
+	selected = false
+	url = user_champions_path(champion_id: champion.id)
+	method = :post
+end
+%>
+<%= link_to url, method: method, remote: true, data: { id: champion.id, selected: selected }, id: dom_id(champion) do %>
+	<%= image_tag champion.image, title: champion.name, class: "selected", id: champion.id %>
+	<span class="not_selected"></span>
+<% end %>

@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
+
+
 gem 'simple_form'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -10,9 +12,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'compass_twitter_bootstrap'
 gem 'compass'
 gem "compass-rails", "~> 2.0.alpha.0"
-gem "rmagick"
 gem "carrierwave"
-
+gem 'mini_magick'
+gem 'thin'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

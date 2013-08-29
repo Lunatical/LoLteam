@@ -22,4 +22,7 @@ class User < ActiveRecord::Base
 
   belongs_to :team
   has_many :user_champions
+	has_many :champions, through: :user_champions, source: :champion
+	
+	
 end

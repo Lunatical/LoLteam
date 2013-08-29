@@ -4,8 +4,8 @@
 			<h3 class="panel-title">My Champions</h3>
 		</div>
 		<div class="panel-body">
-			<% @user_champions.each do |champ|%>
-				<% image_path = "/uploads/champion/image/" + champ.champions_id + "/1.jpg" %>
+			<% @user_champions.each do |champion|%>
+				<% image_path = "/uploads/champion/image/" + champion.id.to_s + "/1.jpg" %>
 				<a href="#" ><%= image_tag image_path %></a>
 			<% end %>
 		</div>

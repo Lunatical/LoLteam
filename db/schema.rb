@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20130829072115) do
     t.datetime "updated_at"
   end
 
+  create_table "mychampions", force: true do |t|
+    t.integer  "users_id"
+    t.string   "champions_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "teams", force: true do |t|
     t.string   "name",                   null: false
     t.integer  "win",        default: 0
@@ -35,25 +42,30 @@ ActiveRecord::Schema.define(version: 20130829072115) do
   end
 
   create_table "user_champions", force: true do |t|
-    t.string   "champname"
-    t.string   "image"
+    t.integer  "user_id"
+    t.integer  "champion_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "user_champions", ["champion_id"], name: "index_user_champions_on_champion_id"
+  add_index "user_champions", ["user_id"], name: "index_user_champions_on_user_id"
+
   create_table "users", force: true do |t|
     t.string   "email",            null: false
     t.string   "username"
+    t.string   "crypted_password"
+    t.string   "salt"
     t.string   "top"
     t.string   "ap"
     t.string   "jungle"
     t.string   "mom"
     t.string   "ad"
-    t.string   "team"
-    t.string   "crypted_password"
-    t.string   "salt"
+    t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["team_id"], name: "index_users_on_team_id"
 
 end
