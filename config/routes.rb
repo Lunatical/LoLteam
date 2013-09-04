@@ -10,6 +10,7 @@ LoLteam::Application.routes.draw do
   resources :sessions
   resources :admin
   resources :champions
+  resources :comments
 
 	resources :user_champions
   root :to => "sessions#new"

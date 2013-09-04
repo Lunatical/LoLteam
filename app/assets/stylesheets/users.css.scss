@@ -29,7 +29,7 @@
 		margin-top: -250px;
 		margin-left: -150px;
 		text-align: center;
-		.join{
+		.join {
 			background-color:#E6DF96;
 			position: absolute;
 			top:    5%;
@@ -39,12 +39,46 @@
 			margin: 0 auto;
 			text-align:left;
 		}
-		.simple_form{
+		.simple_form {
 			margin-left:20px;
 		}
 	}
 	
-	h1{
+	h1 {
 		color:#fff;
 	}
+}
+
+#user_profile {
+	width:90%;
+	height:90%;
+	margin:0px auto;
+	.user_team{
+		width:43%;
+		height:200px;
+		img{
+			margin-right:5px;
+		}
+	}
+	.user_champions{
+		overflow:auto;
+		width:43%;
+		height:300px;
+		img{
+			margin:2px;
+		}
+	}
+	.league_schedule{
+		position:absolute;
+		left:45%;
+		top:13%;
+		width:50%;
+		height:74%;
+		float:right;
+		
+	}
+}
+
+#comments{
+	padding-top:30px
 }

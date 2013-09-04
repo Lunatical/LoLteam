@@ -1,29 +1,44 @@
-class UsersController < ApplicationController
+class UsersController < ApplicationController  
+  layout :layout
+  
+  def layout
+    if current_user
+      "index_users"
+    else
+      "users"
+    end
+  end
+  
+  def index
+    @user_team = current_user.team
+    @user_champions = current_user.champions
+    @matchs = Match.all
+  end
+  
   def new
     @user = User.new
     @team = Team.all
   end
+  
+  def show
+    @user = User.find(params[:id])
+    @team = @user.team
+    @champions = @user.champions
+    @matches = Match.all
+  end
 
   def create
-    @user_check = User.find_by_username(user_params[:username])
-    if @user_check
-      url = new_user_path+"\?error=already"
-    else
     @user = User.new(user_params)
-    @mychampions = Mychampions.new(users_id: "1",champions_id: "12")
-      if @user.save
-        url = new_session_path
-      else
-        render :new
-      end
+    if @user.save
+      redirect_to root_url
+    else
+      render :new
     end
-    redirect_to url
   end
-  
   
   private 
   
   def user_params
-    params.require(:user).permit(:username, :top, :ap, :ad, :mom, :jungle, :team, :email, :password)
+    params.require(:user).permit(:name, :game_nickname, :top, :ap, :ad, :mom, :jungle, :team_id, :email, :password)
   end
 end

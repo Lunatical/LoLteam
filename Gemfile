@@ -15,6 +15,7 @@ gem "compass-rails", "~> 2.0.alpha.0"
 gem "carrierwave"
 gem 'mini_magick'
 gem 'thin'
+gem 'simple_calendar'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

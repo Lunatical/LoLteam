@@ -1,0 +1,49 @@
+<div id="user_profile">
+	<div class="panel panel-info user_team">
+		<div class="panel-heading">
+			<h3 class="panel-title">Team</h3>
+		</div>
+		<div class="panel-body">
+			<% if @team.present? %> 
+				<%= image_tag @team.image_url(:rect), align: "left" %>
+				<div><strong>id:</strong><%= @user.name %></div>
+				<div><strong>team name:</strong><%= @team.name %></div>
+				<div><strong>win :</strong><%= @team.win_count %> </div>
+				<div><strong>lose :</strong><%= @team.lose_count %> </div>
+				<div>
+					<strong>line:</strong>
+					<% if current_user.top == "1" %> 		top 		|   <% end %>
+					<% if current_user.ap == "1" %> 		mid 		|   <% end %>
+					<% if current_user.ad == "1" %> 		range 	|   <% end %>
+					<% if current_user.jungle == "1" %> jungle 	| 	<% end %>
+					<% if current_user.mom == "1" %>    supporter   <% end %> 
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="panel panel-info user_champions">
+		<div class="panel-heading">
+				<h3 class="panel-title">Champions</h3>
+		</div>
+		<div class="panel-body user_champions_body">
+			<% @champions.each do |champion|%>
+				<% image_path = "/uploads/champion/image/" + champion.id.to_s + "/1.jpg" %>
+				<%= image_tag image_path %>
+			<% end %>
+		</div>
+	</div>
+	<div class="panel panel-info league_schedule">
+		<div class="panel-heading">
+			<h3 class="panel-title">League Schedule</h3>
+		</div>
+		<div class="panel-body">
+			<div id="calender">
+				<div id="month">
+					<%= calendar @matches do |match| %>
+						<%= render "matches/show", match: match %>
+					  <div><a data-toggle="modal" href="#<%= dom_id(match) %>"><%= match.title %></a></div>
+					<% end %>
+			</div>
+		</div>
+	</div>
+</div>

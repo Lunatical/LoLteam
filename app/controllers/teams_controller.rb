@@ -4,7 +4,6 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @users = User.all
     @teams = Team.all
   end
 
@@ -12,7 +11,7 @@ class TeamsController < ApplicationController
   # GET /teams/1.json
   def show
     @teams  = Team.find(params[:id])
-    @members = User.find_all_by_team(@teams.id)
+    @members = User.find_all_by_team_id(@teams.id)
   end
 
   # GET /teams/new
@@ -28,7 +27,6 @@ class TeamsController < ApplicationController
   # POST /teams.json
   def create
     @team = Team.new(team_params)
-
     respond_to do |format|
       if @team.save
         format.html { redirect_to @team, notice: 'Team was successfully created.' }
@@ -38,7 +36,7 @@ class TeamsController < ApplicationController
         format.json { render json: @team.errors, status: :unprocessable_entity }
       end
     end
-      @leader = User.update( current_user, "team" => Team.last )
+    User.update(current_user,team_id: Team.last.id)
   end
 
   # PATCH/PUT /teams/1
@@ -59,7 +57,7 @@ class TeamsController < ApplicationController
   # DELETE /teams/1.json
   def destroy
     @leader = Team.find_by_id(params[:id])
-    if current_user.username=="admin" || t(current_user.username)==t(@team.leader)
+    if current_user.name=="admin" || t(current_user.name)==t(@team.leader)
       @team.destroy
       respond_to do |format|
         format.html { redirect_to teams_url }
@@ -76,6 +74,6 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:name,:image,:leader)
+      params.require(:team).permit(:name,:image,:leader,:member)
     end
 end

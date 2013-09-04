@@ -1,0 +1,7 @@
+<div id="<%= dom_id(comment) %>">
+	<strong>content:</strong> <%= comment.body %>
+	<strong>user name:</strong>[<%= comment.user.name %>] <%= comment.user.game_nickname %><br>
+	<%= link_to 'Destroy',[comment], :method  => :delete, :remote => true %>
+	<p/>
+	
+</div>

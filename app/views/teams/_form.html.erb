@@ -12,7 +12,8 @@
   <% end %>
 
   <div class="col-lg-2">
-		<%= f.hidden_field :leader, :value => current_user.username %>
+		<%= f.hidden_field :member, value: current_user.email%>
+		<%= f.hidden_field :leader, value: current_user.name %>
     <%= f.label :name %><br>
     <%= f.text_field :name,class: "form-control" %>
   </div>

@@ -1,0 +1,7 @@
+<%= simple_form_for comment, remote: true do |f| %>
+	<%= f.hidden_field :content_id, value: comment.content_id %>
+	<%= f.hidden_field :content_type, value: comment.content_type %>
+	<%= f.hidden_field :user_id, value: current_user.id %>
+	<%= f.input :body, input_html: { class: "form-control" } %>
+	<%= f.submit "작성" , class:  "btn btn-success mt20"%>
+<% end %>

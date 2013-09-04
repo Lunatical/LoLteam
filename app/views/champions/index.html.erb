@@ -1,16 +1,5 @@
-<div id="mychampion_list">
-	<div class="panel panel-info">
-		<div class="panel-heading">
-			<h3 class="panel-title">My Champions</h3>
-		</div>
-		<div class="panel-body">
-			<% @user_champions.each do |champion|%>
-				<% image_path = "/uploads/champion/image/" + champion.id.to_s + "/1.jpg" %>
-				<a href="#" ><%= image_tag image_path %></a>
-			<% end %>
-		</div>
-	</div>
-	<div class="new_team">
-		<%= link_to 'Edit Mychampions', edit_champion_path(current_user),class: "btn btn-mini btn-default glyphicon glyphicon-pencil" %>
+<div id="champions_edit">
+	<div id="champions">
+		<% @champions.each { |c| concat(render c) } %>
 	</div>
 </div>

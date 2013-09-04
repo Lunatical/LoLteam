@@ -1,0 +1,10 @@
+<%
+match_count = Match.where("(winner_id = #{id} or loser_id = #{id}) AND w_k_count IS NOT NULL").count
+w_kda = Match.select("SUM(w_k_count) as WK, SUM(w_d_count) as WD, SUM(w_a_count) as WA").where("winner_id = #{id} AND w_k_count IS NOT NULL").first
+l_kda = Match.select("SUM(l_k_count) as LK, SUM(l_d_count) as LD, SUM(l_a_count) as LA").where("loser_id = #{id} AND l_k_count IS NOT NULL").first
+%>
+<% unless match_count==0 %>
+<%= (w_kda.WK.to_i + l_kda.LK.to_i) / match_count.to_i %> /
+<%= (w_kda.WD.to_i + l_kda.LD.to_i) / match_count.to_i %> /
+<%= (w_kda.WA.to_i + l_kda.LA.to_i) / match_count.to_i %>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130829072115) do
+ActiveRecord::Schema.define(version: 20130923075433) do
 
   create_table "champions", force: true do |t|
     t.string   "name"
@@ -20,7 +20,26 @@ ActiveRecord::Schema.define(version: 20130829072115) do
     t.datetime "updated_at"
   end
 
+  create_table "comments", force: true do |t|
+    t.string   "user_id"
+    t.string   "body"
+    t.integer  "content_id"
+    t.string   "content_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "matches", force: true do |t|
+    t.string   "title"
+    t.integer  "loser_id"
+    t.integer  "l_k_count"
+    t.integer  "l_d_count"
+    t.integer  "l_a_count"
+    t.integer  "winner_id"
+    t.integer  "w_k_count"
+    t.integer  "w_d_count"
+    t.integer  "w_a_count"
+    t.datetime "matched_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,9 +53,13 @@ ActiveRecord::Schema.define(version: 20130829072115) do
 
   create_table "teams", force: true do |t|
     t.string   "name",                   null: false
-    t.integer  "win",        default: 0
-    t.integer  "lose",       default: 0
+    t.string   "member"
+    t.integer  "win_count",  default: 0
+    t.integer  "lose_count", default: 0
     t.string   "leader"
+    t.string   "image"
+    t.datetime "matched_at"
+    t.integer  "comment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,19 +76,22 @@ ActiveRecord::Schema.define(version: 20130829072115) do
 
   create_table "users", force: true do |t|
     t.string   "email",            null: false
-    t.string   "username"
+    t.string   "name"
     t.string   "crypted_password"
     t.string   "salt"
+    t.string   "game_nickname"
     t.string   "top"
     t.string   "ap"
     t.string   "jungle"
     t.string   "mom"
     t.string   "ad"
     t.integer  "team_id"
+    t.integer  "comment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "users", ["comment_id"], name: "index_users_on_comment_id"
   add_index "users", ["team_id"], name: "index_users_on_team_id"
 
 end

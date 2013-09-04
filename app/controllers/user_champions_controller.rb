@@ -7,7 +7,7 @@ class UserChampionsController < ApplicationController
 	end
 	
 	def destroy
-		@uc = UserChampion.find(params[:id]).destroy
+		  @uc = UserChampion.find(params[:id]).destroy
 	end
 	
 	

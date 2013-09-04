@@ -1,0 +1,23 @@
+<div class="modal fade" id="<%= dom_id(match) %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+         <h4 class="modal-title">Match_Info</h4>
+       </div>
+       <div class="modal-body">
+         <div><strong>Match_title :</strong><%= match.title %></div>
+				 <div><strong>Matched_at :</strong> <%= match.matched_at.strftime("%m월 %d일 | %H시 %M분")%></div>
+				 
+				 
+				 <div id="comments">
+					 	<strong>Comment</strong><br>
+					 	<%= render match.comments %>
+				 </div>
+				 <div id="new_comment">
+					 <%= render "comments/new", comment: match.comments.new %>
+				 </div>
+       </div>
+     </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+ </div><!-- /.modal -->

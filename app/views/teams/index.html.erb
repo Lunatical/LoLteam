@@ -4,36 +4,32 @@
 	<table class="table table-striped table-hover">
 		<thead>
 			<tr>
-				<th>
-					name
-				</th>
-				<th>
-					win
-				</th>
-				<th>
-					lose
-				</th>
-				<th>
-					other
-				</th>
+				<th>name</th>
+				<th>win</th>
+				<th>lose</th>
+				<th>팀원</th>
+				<th>K/D/A</th>
+				<th>other</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% @teams.each do |team| %>
 			<tr>
+				<td><%=link_to team.name, team_path(team),style: "background:none"%></td>
+				<td><%=team.win_count%></td>
+				<td><%=team.lose_count%></td>
 				<td>
-					<%=link_to team.name, team_path(team),style: "background:none"%>
+					<% team.users.each do |user| %>
+						<%= link_to user.name, user_path(user.id) %><br>
+					<% end %>
 				</td>
 				<td>
-					<%=team.win%>
-				</td>
-				<td>
-					<%=team.lose%>
+					<%= render "kda", id: team.id %>
 				</td>
 				<td>
 					<%= link_to 'edit', edit_team_path(team), class: "btn btn-mini btn-default glyphicon glyphicon-pencil" %>
 					<%= link_to 'destroy', team_path(team), class: "btn btn-mini btn-default glyphicon glyphicon-trash", method: :delete %>
-					<%= link_to 'message', edit_team_path(team), class: "btn btn-mini btn-default glyphicon glyphicon-envelope" %>
+					<%= link_to 'comment', "#", class: "btn btn-mini btn-default glyphicon glyphicon-edit" %>
 				</td>
 			</tr>
 			<% end %>
