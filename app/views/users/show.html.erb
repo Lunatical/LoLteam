@@ -12,11 +12,11 @@
 				<div><strong>lose :</strong><%= @team.lose_count %> </div>
 				<div>
 					<strong>line:</strong>
-					<% if current_user.top == "1" %> 		top 		|   <% end %>
-					<% if current_user.ap == "1" %> 		mid 		|   <% end %>
-					<% if current_user.ad == "1" %> 		range 	|   <% end %>
-					<% if current_user.jungle == "1" %> jungle 	| 	<% end %>
-					<% if current_user.mom == "1" %>    supporter   <% end %> 
+					<% if current_user.top == "1" %> 		탑 		|   <% end %>
+					<% if current_user.ap == "1" %> 		미드 	|   <% end %>
+					<% if current_user.ad == "1" %> 		원딜 	|   <% end %>
+					<% if current_user.jungle == "1" %> 정글 	| 	<% end %>
+					<% if current_user.mom == "1" %>    서포터   <% end %> 
 				</div>
 			<% end %>
 		</div>
@@ -41,7 +41,8 @@
 				<div id="month">
 					<%= calendar @matches do |match| %>
 						<%= render "matches/show", match: match %>
-					  <div><a data-toggle="modal" href="#<%= dom_id(match) %>"><%= match.title %></a></div>
+					  <div><a data-toggle="modal" href="#<%= dom_id(match) %>", style="color:#aaa">
+						<%= match.title %></a><span class="badge"><%=match.comments.count%></span></div>
 					<% end %>
 			</div>
 		</div>

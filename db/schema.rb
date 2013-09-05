@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20130923075433) do
   end
 
   create_table "comments", force: true do |t|
-    t.string   "user_id"
+    t.integer  "user_id"
     t.string   "body"
     t.integer  "content_id"
     t.string   "content_type"

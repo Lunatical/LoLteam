@@ -1,7 +1,8 @@
 <div id="<%= dom_id(comment) %>">
-	<strong>content:</strong> <%= comment.body %>
-	<strong>user name:</strong>[<%= comment.user.name %>] <%= comment.user.game_nickname %><br>
-	<%= link_to 'Destroy',[comment], :method  => :delete, :remote => true %>
-	<p/>
+	<div>[<%= comment.user.name %>] <%= comment.user.game_nickname %></div>
+	<div class="date"><%=comment.created_at.strftime("%m/%d | %H: %M")%></div>
+	<div class="well well-sm"><%= comment.body %><br>
+	<% if current_user.id == comment.user_id %><%= link_to 'Destroy',[comment], :method  => :delete, :remote => true %> <% end %>
+	</div>
 	
 </div>
