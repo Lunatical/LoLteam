@@ -10,11 +10,11 @@
 				 <div><strong>Matched_at :</strong> <%= match.matched_at.strftime("%m월 %d일 | %H시 %M분")%></div>
 				 
 				 
-				 <div id="comments">
+				 <div class="comments">
 					 	<strong>Comment to '<%= match.title %>'</strong><br>
 					 	<%= render match.comments %>
 				 </div>
-				 <div id="new_comment">
+				 <div class="new_comment">
 					 <%= render "comments/new", comment: match.comments.new %>
 				 </div>
        </div>
