@@ -1,23 +1,24 @@
+<%= image_tag "signup_logo.png", class: "logo" %>
 <div id="create_user">
-	<div class="error">
-		<% if params[:error] %>
-			<h3>error: alerady name</h3>
-		<% end %>
-	</div>
 	<div class="wrapper">
 		<div class="join">
 			<%= simple_form_for @user do |f| %>
-				<%= f.input :name, label: "name", input_html: { class: "w100 form-control" } %>
-				<%= f.input :game_nickname, label: "game_nickname", input_html: { class: "w100 form-control"}%>
-				<%= f.input :top, label: '탑',  :as => :boolean, input_html: { class: "fl" }, :value => true %>
-				<%= f.input :ap, label: "미드", :as => :boolean, input_html: { class: "fl" }, :value => true %>
-				<%= f.input :jungle, label: "정글", :as => :boolean, input_html: { class: "fl" }, :value => true %>
-				<%= f.input :ad, label: "원딜", :as => :boolean, input_html: { class: "fl" }, :value => true %>
-				<%= f.input :mom, label: "서폿", :as => :boolean, input_html: { class: "fl" }, :value => true %>
-				<%= f.input :team_id, label: "Team", input_html: { class: "w200 form-control" }, :as => :select, collection: @team, :include_blank => false %>
-				<%= f.input :email, label: "email", input_html: { class: "form-control w200 " } %>
-				<%= f.input :password, label: "password", input_html: { class: "w100 form-control" } %>
-				<%= f.submit "확인", :class => "btn btn-success mt20" %>
+				<%= f.input :email, label: "이메일", input_html: { class: "form-control " } %>
+				<%= f.input :password, label: "암호", input_html: { class: "form-control" } %><br>
+				
+				<%= f.input :name, label: "이름", input_html: { class: "form-control" } %>
+				<%= f.input :game_nickname, label: "lol 닉네임", input_html: { class: "form-control"}%><br>
+				
+				<label>포지션</label><br>
+				<%= f.input :top, label: '탑',  :as => :boolean, input_html: { class: "" }, :value => true %>
+				<%= f.input :ap, label: "미드", :as => :boolean, input_html: { class: "" }, :value => true %>
+				<%= f.input :jungle, label: "정글", :as => :boolean, input_html: { class: "" }, :value => true %>
+				<%= f.input :ad, label: "원딜", :as => :boolean, input_html: { class: "" }, :value => true %>
+				<%= f.input :mom, label: "서폿", :as => :boolean, input_html: { class: "" }, :value => true %>
+				<br><br>
+				
+				<%= f.input :team_id, label: "Team", input_html: { class: "form-control" }, :as => :select, collection: @team, :include_blank => false %>
+				<%= f.submit "확인", :class => "btn btn-success" %>
 			<% end %>
 		</div>
 	</div>

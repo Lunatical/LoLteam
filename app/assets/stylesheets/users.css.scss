@@ -4,11 +4,21 @@
 @import "compass";
 @import "compass/reset";
 @import "mixin";
+
+.logo {
+	position: absolute;
+	width: 490px;
+	height: 215px;
+	top: 445px;
+	left: 50%;
+	margin-left: -490px;
+	z-index: 10;
+}
+
 #create_user {
 	position: fixed;
-	background:url(Sign_Thema.png);
-	background-repeat:no-repeat;
-	background-size:100% 100%;
+	background: url(asset-path("signup_bg.jpg", image)) no-repeat top center;
+	background-color:#000;
 	width: 100%;
 	height: 100%;
 	.error {
@@ -18,16 +28,13 @@
 		color: #fff;
 	}
 	.wrapper {
-		background:url(Join.png);
-		background-repeat:no-repeat;
-		background-size:100% 100%;
-		position: fixed;
-		top: 50%;
-		left: 70%;
-		width: 300px;
-		height: 500px;
-		margin-top: -250px;
-		margin-left: -150px;
+		background:url(asset-path("Join.png", image)) no-repeat bottom center;
+		position: absolute;
+		top: 115px;
+		left: 50%;
+		width: 432px;
+		height: 595px;
+		margin-left: 80px;
 		text-align: center;
 		.join {
 			background-color:#E6DF96;
@@ -38,6 +45,24 @@
 			height: 90%;
 			margin: 0 auto;
 			text-align:left;
+			input[type="text"],
+			input[type="password"],
+			input[type="email"],
+			select {
+				width: 93%;
+			}
+			div.boolean {
+				float: left;
+				label {
+					padding: 0 10px 0 5px;
+					
+				}
+			}
+			.btn {
+				margin-top: 20px;
+				width: 93%;
+				height: 100px;
+			}
 		}
 		.simple_form {
 			margin-left:20px;
