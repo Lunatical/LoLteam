@@ -5,7 +5,7 @@ task fix_assets: :environment do
   require 'fileutils'
   regexp = /(-{1}[a-z0-9]{32}*\.{1}){1}/
  
-  assets = File.join(Rails.root, 'public', Susanoo::Application.config.assets.prefix, "**/*")
+  assets = File.join(Rails.root, 'public', 'assets', "**/*")
   Dir.glob(assets).each do |file|
     next if File.directory?(file)
     next unless file =~ regexp
