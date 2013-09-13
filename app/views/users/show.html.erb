@@ -1,3 +1,4 @@
+
 <div id="user_profile">
 	<div class="panel panel-info user_team">
 		<div class="panel-heading">
@@ -8,8 +9,12 @@
 				<%= image_tag @team.image_url(:rect), align: "left" %>
 				<div><strong>id:</strong><%= @user.name %></div>
 				<div><strong>team name:</strong><%= @team.name %></div>
-				<div><strong>win :</strong><%= @team.win_count %> </div>
-				<div><strong>lose :</strong><%= @team.lose_count %> </div>
+				<%
+					win_count = Match.where("winner_id = #{@team.id}").count
+					lose_count = Match.where("loser_id = #{@team.id}").count
+				%>
+				<div><strong>win :</strong> <%= win_count %>  </div>
+				<div><strong>lose :</strong><%= lose_count %> </div>
 				<div>
 					<strong>line:</strong>
 					<% if current_user.top == "1" %> 		탑 		|   <% end %>

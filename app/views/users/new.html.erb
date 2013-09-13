@@ -14,8 +14,9 @@
 				<%= f.input :ap, label: "미드", :as => :boolean, input_html: { class: "" }, :value => true %>
 				<%= f.input :jungle, label: "정글", :as => :boolean, input_html: { class: "" }, :value => true %>
 				<%= f.input :ad, label: "원딜", :as => :boolean, input_html: { class: "" }, :value => true %>
-				<%= f.input :mom, label: "서폿", :as => :boolean, input_html: { class: "" }, :value => true %>
+				<%= f.input :mom, label: "서폿", :as => :boolean, input_html: { class: "" }, :value => true %>				
 				<br><br>
+				<%= f.input :team_id, label: "Team", input_html: { class: "form-control" }, :as => :select, collection: @team, :include_blank => true %>
 				<%= f.submit "확인", :class => "btn btn-success" %>
 			<% end %>
 		</div>

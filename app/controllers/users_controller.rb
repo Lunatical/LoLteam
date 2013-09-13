@@ -23,7 +23,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_url
+      user = login(params[:user][:email],params[:user][:password])
+      redirect_to teams_path
     else
       render :new
     end
