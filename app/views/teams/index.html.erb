@@ -14,10 +14,14 @@
 		</thead>
 		<tbody>
 			<% @teams.each do |team| %>
+			<%
+			win_count = Match.where("winner_id = #{team.id}").count
+			lose_count = Match.where("loser_id = #{team.id}").count
+			%>
 			<tr>
 				<td><%=link_to team.name, team_path(team),style: "background:none"%></td>
-				<td><%=team.win_count%></td>
-				<td><%=team.lose_count%></td>
+				<td><%=win_count%></td>
+				<td><%=lose_count%></td>
 				<td>
 					<% team.users.each do |user| %>
 						<%= link_to user.name, user_path(user.id) %><br>

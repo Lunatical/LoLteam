@@ -1,4 +1,5 @@
 LoLteam::Application.routes.draw do
+  get "destroy/match"
   resources :teams
   
   get "logout" => "sessions#destroy", :as => "logout"
@@ -11,6 +12,7 @@ LoLteam::Application.routes.draw do
   resources :admin
   resources :champions
   resources :comments
+  resources :matchs
 
 	resources :user_champions
   root :to => "sessions#new"

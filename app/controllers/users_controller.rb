@@ -35,6 +35,7 @@ class UsersController < ApplicationController
     @teams = Team.all
     @champions = @user.champions
     @matches = Match.all
+    @match = Match.new()
   end
   
   def update

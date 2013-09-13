@@ -8,8 +8,9 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: url(asset-path("Login_Thema.png", image)) 50% 50%;
-	background-size: cover;
+	background-position: top center;
+	background-color:#000;
+	background-repeat: no-repeat;
 	width: 100%;
 	height: 100%;
 	.wrapper {
