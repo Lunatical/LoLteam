@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   has_many :user_champions
 	has_many :champions, through: :user_champions, source: :champion
 	
-  validates_presence_of :email, :game_nickname, :name, :password, :team_id
+  validates_presence_of :email, :game_nickname, :name, :password
   validates_uniqueness_of :email, :game_nickname, :name
   
 end

@@ -1,5 +1,5 @@
 <%= image_tag "signup_logo.png", class: "logo" %>
-<div id="create_user">
+<div id="create_user" style="background: black url(<%= asset_path("signup_bg.jpg") %>) no-repeat top center;">
 	<div class="wrapper">
 		<div class="join">
 			<%= simple_form_for @user do |f| %>
