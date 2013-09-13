@@ -18,6 +18,8 @@
 					<% if current_user.jungle == "1" %> 정글 	| 	<% end %>
 					<% if current_user.mom == "1" %>    서포터   <% end %>  
 				</div>
+			<% else %>
+					<div id="team_join"><a class="btn btn-success" href="#modal_join" data-toggle="modal">팀 가입하기</a></div>
 			<% end %>
 		</div>
 	</div>
@@ -45,6 +47,20 @@
 						<%= match.title %></a><span class="badge"><%=match.comments.count%></span></div>
 					<% end %>
 			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="modal_join" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+				<div class="modal-body">
+						<%= simple_form_for @user do |f| %>
+							<%= f.input :team_id, label: "Team", input_html: { class: "form-control" }, :as => :select, collection: @teams, :include_blank => false %>
+							<%= f.submit "확인", :class => "btn btn-success mt10"  %>
+						<% end %>
+				</div>	
 		</div>
 	</div>
 </div>
