@@ -16,7 +16,6 @@
 	</div>
 	<div id="member_list">
 		<table class="table">
-			<% @members.each do |member| %>
 			<thead>
 				<tr>
 					<th>
@@ -30,6 +29,7 @@
 					</th>
 				</tr>
 			</thead>
+			<% @members.each do |member| %>
 			<tr>
 				<td>
 					<%= member.name%>
